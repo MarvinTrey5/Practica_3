@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 3</title>
+    <style>
+        form{
+        text-align: center;
+        flex: 1;
+        padding: 1em;
+        background-color: aqua;
+        border: 3.5px solid white;
+        box-shadow: 5px 5px 5px brown;
+    }
+    form h1{
+        text-align: center;
+        color: black;
+        font-family: cursive;
+        font-size: 20px;
+        border: 2px solid black;
+        box-shadow: 3px 3px 3px black;
+    }
+    form label{
+        padding: 14em;
+        font-family: cursive;
+        text-align: center;
+        color: black;
+        font-family: cursive;
+        font-size: 20px;
+    }
+    form input{
+        color: black;
+        font-family: cursive;
+        font-size: 14px;
+        padding: 0.2em;
+        border: 3px solid black;
+        box-shadow: 5px 5px 5px blue;
+        margin-bottom: 10px;
+    }
+    form button{
+        padding: 4px;
+        background-color: teal;
+        color: white;
+        border: 2px solid white;
+        box-shadow: 2px 2px 2px blue;
+        margin-bottom: 20px;
+    }
+    form p{
+        margin: auto;
+        width: 20%;
+        padding: 4px;
+        background-color: teal;
+        color: white;
+        border: 2px solid white;
+        box-shadow: 3px 3px 3px blue;
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center;">Marvin Javier Santos Fernández SMSS029022</h3>
+    <form>
+        <h1>Sumatoria de 2 números</h1>
+        <!-- Para el primer valor-->
+        <label for="Num1"> Número 1</label> <br>
+        <input type="number" id="valor1"> <br>
+        <!-- Para el segundo valor-->
+        <label for="Num2"> Número 2</label> <br>
+        <input type="number" id="valor2"> <br>
+
+        <button type="button" onclick="Sumatoria()">Sumar</button>
+        <button type="button" onclick="Multiplicar()">Multiplicar</button>
+        <button type="button" onclick="Resta()">Resta</button>
+        <button type="button" onclick="Dividir()">Dividir</button>
+        <p>El Resultado es: <span id="Resultado"></span></p> <br>
+    </form>
+    <script>
+        // 1
+        const distancia_EnKilometros = 250;
+        const tiempo_EnMinutos = 140; 
+        const velocidadEnKilometrosPorMinuto = distancia_EnKilometros / tiempo_EnMinutos;
+        const velocidadEnMetrosPorSegundo = velocidadEnKilometrosPorMinuto * 1000 / 60;
+        console.log(`La velocidad es: " + ${velocidadEnMetrosPorSegundo} +  m/s`);
+        // --------------------------------------------------------------------------------
+        // 2
+        function Triangulo(lado_1, lado_2, lado_3) {
+            if (lado_1 === lado_2 && lado_2 === lado_3) {
+                return "Equilátero";
+            } else if (lado_1 === lado_2 || lado_1 === lado_3 || lado_2 === lado_3) {
+                return "Isósceles";
+            } else {
+                return "Escaleno";
+            }
+        }
+        let x = 8;
+        let y = 4;
+        let z = 2;
+
+        const lados = Triangulo(x, y, z);
+        console.log("El triángulo con lados " + x + ", " + y + ", " + z + " es: " + lados);
+        // --------------------------------------------------------------------------------
+        // 3
+        document.getElementById('valor1').focus();
+        function Sumatoria(){
+            document.getElementById('valor1').focus();
+
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+            var R = valor1 + valor2
+            document.getElementById('Resultado').textContent= R;
+        }
+        function Multiplicar(){
+            document.getElementById('valor1').focus();
+
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+            var R = valor1 * valor2
+            document.getElementById('Resultado').textContent= R;
+        }
+        function Resta(){
+            document.getElementById('valor1').focus();
+
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+            var R = valor1 - valor2
+            document.getElementById('Resultado').textContent= R;
+        }
+        function Dividir(){
+            document.getElementById('valor1').focus();
+
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+            var R = valor1 / valor2
+            document.getElementById('Resultado').textContent= R;
+        }
+        // --------------------------------------------------------------------------------
+        // 4
+            function Num_Primo(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function Verificar_Num(num) {
+            if (Num_Primo(num)) {
+                console.log(num + " es un número primo.");
+            } else {
+                console.log(num + " no es un número primo.");
+            }
+        }
+        Verificar_Num(7);
+        Verificar_Num(199);
+        Verificar_Num(34);
+    </script>
+</body>
+</html>
